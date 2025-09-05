@@ -1,0 +1,84 @@
+/* Minimal, sleek typography and layout */
+:root{
+--bg: #ffffff;
+--text: #0b0d10;
+--muted: #5b6573;
+--accent: #3b82f6;
+--card: #f6f8fb;
+--border: #e6e9ef;
+--focus: #0ea5e9;
+--shadow: 0 1px 2px rgba(0,0,0,.05), 0 4px 24px rgba(0,0,0,.06)
+}
+@media (prefers-color-scheme: dark){
+:root{
+--bg: #0b0d10;
+--text: #e6e9ef;
+--muted: #9aa3af;
+--accent: #60a5fa;
+--card: #111418;
+--border: #1f2430;
+--focus: #38bdf8;
+--shadow: 0 1px 2px rgba(0,0,0,.25), 0 6px 30px rgba(0,0,0,.35)
+}}
+[data-theme="dark"]{
+--bg: #0b0d10;
+--text: #e6e9ef;
+--muted: #9aa3af;
+--accent: #60a5fa;
+--card: #111418;
+--border: #1f2430;
+--focus: #38bdf8;
+--shadow: 0 1px 2px rgba(0,0,0,.25), 0 6px 30px rgba(0,0,0,.35)
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+margin:0;
+font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+line-height:1.6;
+color:var(--text);
+background:var(--bg);
+text-rendering:optimizeLegibility;
+-webkit-font-smoothing:antialiased;
+scroll-behavior:smooth
+}
+.skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+.skip-link:focus{left:16px;top:16px;width:auto;height:auto;background:var(--card);color:var(--text);padding:8px 12px;border-radius:8px;box-shadow:var(--shadow)}
+.site-header{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:16px;padding:12px 20px;background:color-mix(in oklab, var(--bg) 96%, transparent);backdrop-filter:saturate(140%) blur(8px);border-bottom:1px solid var(--border)}
+.brand{font-weight:700;letter-spacing:.05em;text-decoration:none;color:var(--text)}
+.site-nav{margin-left:auto}
+.nav{display:flex;gap:16px;list-style:none;padding:0;margin:0}
+.nav a{text-decoration:none;color:var(--muted)}
+.nav a:hover,.nav a:focus{color:var(--text)}
+.menu-toggle{display:none}
+.theme-toggle{margin-left:8px;border:1px solid var(--border);background:var(--card);color:var(--text);padding:6px 10px;border-radius:10px;cursor:pointer}
+main{max-width:980px;margin:0 auto;padding:40px 20px}
+.hero{padding:56px 0}
+.hero h1{font-size:clamp(32px,6vw,56px);line-height:1.1;margin:0 0 8px}
+.subtitle{color:var(--muted);margin:0 0 20px}
+.cta{display:flex;gap:12px}
+.button{display:inline-block;padding:10px 14px;border-radius:12px;border:1px solid var(--border);background:var(--text);color:var(--bg);text-decoration:none}
+.button.secondary{background:transparent;color:var(--text)}
+section{padding:32px 0;border-top:1px solid var(--border)}
+h2{font-size:22px;margin:0 0 12px}
+.timeline{list-style:none;margin:0;padding:0;display:grid;gap:16px}
+.timeline-item{padding:16px;border:1px solid var(--border);background:var(--card);border-radius:14px;box-shadow:var(--shadow)}
+.timeline-meta{color:var(--muted);font-size:14px}
+.timeline-title{font-weight:600;margin-top:4px}
+.timeline-body{margin-top:6px}
+.pub-list{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.pub-title{font-weight:600}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.card{padding:16px;border:1px solid var(--border);background:var(--card);border-radius:14px;box-shadow:var(--shadow)}
+.card .arrow{text-decoration:none}
+.contact{list-style:none;margin:0;padding:0;display:flex;gap:16px;flex-wrap:wrap}
+.site-footer{max-width:980px;margin:0 auto;padding:24px 20px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;color:var(--muted)}
+.back-to-top{text-decoration:none;color:var(--muted)}
+@media (max-width:720px){
+.menu-toggle{display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--border);background:var(--card);color:var(--text);padding:6px 10px;border-radius:10px}
+.site-nav{display:none}
+.site-nav.open{display:block;position:absolute;top:56px;right:12px;background:var(--card);border:1px solid var(--border);border-radius:12px;box-shadow:var(--shadow)}
+.site-nav.open .nav{flex-direction:column;padding:12px}
+}
+*:focus{outline:none;box-shadow:0 0 0 3px var(--focus) inset;border-radius:8px}
+

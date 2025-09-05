@@ -4,13 +4,102 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Aidan Mokalla</title>
-<meta name="description" content="Personal website">
+<meta name="description" content="Personal website of Aidan Mokalla">
+<meta name="author" content="Aidan Mokalla">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#0b0d10" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta property="og:title" content="Aidan Mokalla">
+<meta property="og:description" content="Minimal, clear profile and work.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="/assets/favicon.svg">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/styles.css" as="style">
+<link rel="stylesheet" href="/assets/styles.css">
 </head>
 <body>
-<main>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header" role="banner">
+<a class="brand" href="#home" aria-label="Home">AM</a>
+<button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="primary-navigation">Menu</button>
+<nav id="primary-navigation" class="site-nav" aria-label="Primary">
+<ul class="nav">
+<li><a href="#about">About</a></li>
+<li><a href="#work">Work</a></li>
+<li><a href="#research">Research</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">◐</button>
+</header>
+<main id="main" tabindex="-1">
+<section class="hero" id="home" aria-label="Introduction">
 <h1>Aidan Mokalla</h1>
-<p>Content</p>
+<p class="subtitle">Add a concise tag: e.g., Data Scientist · ML Engineer</p>
+<div class="cta">
+<a class="button" href="#contact">Contact</a>
+<a class="button secondary" href="cv.pdf" target="_blank" rel="noopener">CV</a>
+</div>
+</section>
+<section id="about" aria-label="About">
+<h2>About</h2>
+<p>Insert a 2–4 sentence bio highlighting your focus, interests, and recent impact.</p>
+</section>
+<section id="work" aria-label="Experience">
+<h2>Experience</h2>
+<ul class="timeline">
+<li>
+<div class="timeline-item">
+<div class="timeline-meta">Year–Year · Company</div>
+<div class="timeline-title">Role Title</div>
+<div class="timeline-body">Brief note on scope and measurable outcomes.</div>
+</div>
+</li>
+<li>
+<div class="timeline-item">
+<div class="timeline-meta">Year–Year · Company</div>
+<div class="timeline-title">Role Title</div>
+<div class="timeline-body">Brief note on scope and measurable outcomes.</div>
+</div>
+</li>
+</ul>
+</section>
+<section id="research" aria-label="Research">
+<h2>Research & Publications</h2>
+<ul class="pub-list">
+<li><span class="pub-title">Paper Title</span> — <span class="pub-venue">Venue</span>, <span class="pub-year">Year</span> · <a class="pub-link" href="#" target="_blank" rel="noopener">PDF</a></li>
+</ul>
+</section>
+<section id="projects" aria-label="Projects">
+<h2>Projects</h2>
+<div class="cards">
+<article class="card">
+<h3>Project Name</h3>
+<p>One sentence on the what and the why.</p>
+<a href="#" class="arrow">Explore →</a>
+</article>
+<article class="card">
+<h3>Another Project</h3>
+<p>Key capability or result worth noting.</p>
+<a href="#" class="arrow">Explore →</a>
+</article>
+</div>
+</section>
+<section id="contact" aria-label="Contact">
+<h2>Contact</h2>
+<ul class="contact">
+<li><a href="mailto:aidan@example.com">aidan@example.com</a></li>
+<li><a href="https://www.linkedin.com/in/your-profile" target="_blank" rel="noopener">LinkedIn</a></li>
+<li><a href="https://github.com/ggggggrv15" target="_blank" rel="noopener">GitHub</a></li>
+</ul>
+</section>
 </main>
+<footer class="site-footer" role="contentinfo">
+<p>© <span id="year"></span> Aidan Mokalla. All rights reserved.</p>
+<a class="back-to-top" href="#home" aria-label="Back to top">Back to top ↑</a>
+</footer>
+<script src="/assets/script.js" defer></script>
 </body>
 </html>
 
