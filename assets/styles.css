@@ -1,4 +1,4 @@
-/* Minimal, sleek typography and layout */
+/* Minimal, sleek typography and layout – polished */
 :root{
 --bg: #ffffff;
 --text: #0b0d10;
@@ -7,7 +7,9 @@
 --card: #f6f8fb;
 --border: #e6e9ef;
 --focus: #0ea5e9;
---shadow: 0 1px 2px rgba(0,0,0,.05), 0 4px 24px rgba(0,0,0,.06)
+--shadow: 0 1px 2px rgba(0,0,0,.05), 0 6px 28px rgba(0,0,0,.08);
+--grad: radial-gradient(1200px 600px at 10% -10%, rgba(59,130,246,.10), transparent 40%),
+       radial-gradient(900px 500px at 90% 0%, rgba(14,165,233,.10), transparent 35%)
 }
 @media (prefers-color-scheme: dark){
 :root{
@@ -18,7 +20,9 @@
 --card: #111418;
 --border: #1f2430;
 --focus: #38bdf8;
---shadow: 0 1px 2px rgba(0,0,0,.25), 0 6px 30px rgba(0,0,0,.35)
+--shadow: 0 1px 2px rgba(0,0,0,.25), 0 10px 40px rgba(0,0,0,.45);
+--grad: radial-gradient(1200px 600px at 10% -10%, rgba(59,130,246,.18), transparent 40%),
+       radial-gradient(900px 500px at 90% 0%, rgba(14,165,233,.16), transparent 35%)
 }}
 [data-theme="dark"]{
 --bg: #0b0d10;
@@ -28,49 +32,66 @@
 --card: #111418;
 --border: #1f2430;
 --focus: #38bdf8;
---shadow: 0 1px 2px rgba(0,0,0,.25), 0 6px 30px rgba(0,0,0,.35)
+--shadow: 0 1px 2px rgba(0,0,0,.25), 0 10px 40px rgba(0,0,0,.45);
+--grad: radial-gradient(1200px 600px at 10% -10%, rgba(59,130,246,.18), transparent 40%),
+       radial-gradient(900px 500px at 90% 0%, rgba(14,165,233,.16), transparent 35%)
 }
 *{box-sizing:border-box}
 html,body{height:100%}
 body{
 margin:0;
-font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
 line-height:1.6;
 color:var(--text);
 background:var(--bg);
+background-image: var(--grad);
 text-rendering:optimizeLegibility;
 -webkit-font-smoothing:antialiased;
 scroll-behavior:smooth
 }
+.prose{max-width:68ch}
+.muted{color:var(--muted)}
 .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
 .skip-link:focus{left:16px;top:16px;width:auto;height:auto;background:var(--card);color:var(--text);padding:8px 12px;border-radius:8px;box-shadow:var(--shadow)}
-.site-header{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:16px;padding:12px 20px;background:color-mix(in oklab, var(--bg) 96%, transparent);backdrop-filter:saturate(140%) blur(8px);border-bottom:1px solid var(--border)}
+.site-header{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:16px;padding:12px 20px;background:color-mix(in oklab, var(--bg) 92%, transparent);backdrop-filter:saturate(140%) blur(8px);border-bottom:1px solid var(--border)}
 .brand{font-weight:700;letter-spacing:.05em;text-decoration:none;color:var(--text)}
 .site-nav{margin-left:auto}
 .nav{display:flex;gap:16px;list-style:none;padding:0;margin:0}
-.nav a{text-decoration:none;color:var(--muted)}
+.nav a{text-decoration:none;color:var(--muted);position:relative}
+.nav a:after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:currentColor;opacity:.0;transform:translateY(4px);transition:all .2s ease}
 .nav a:hover,.nav a:focus{color:var(--text)}
+.nav a:hover:after,.nav a:focus:after{opacity:.6;transform:translateY(0)}
 .menu-toggle{display:none}
 .theme-toggle{margin-left:8px;border:1px solid var(--border);background:var(--card);color:var(--text);padding:6px 10px;border-radius:10px;cursor:pointer}
 main{max-width:980px;margin:0 auto;padding:40px 20px}
-.hero{padding:56px 0}
+.hero{padding:72px 0}
 .hero h1{font-size:clamp(32px,6vw,56px);line-height:1.1;margin:0 0 8px}
-.subtitle{color:var(--muted);margin:0 0 20px}
+.subtitle{color:var(--muted);margin:0 0 20px;font-size:clamp(16px,2.4vw,18px)}
 .cta{display:flex;gap:12px}
-.button{display:inline-block;padding:10px 14px;border-radius:12px;border:1px solid var(--border);background:var(--text);color:var(--bg);text-decoration:none}
+.button{display:inline-block;padding:10px 14px;border-radius:12px;border:1px solid var(--border);background:var(--text);color:var(--bg);text-decoration:none;transition:transform .06s ease, box-shadow .15s ease}
+.button:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
 .button.secondary{background:transparent;color:var(--text)}
 section{padding:32px 0;border-top:1px solid var(--border)}
 h2{font-size:22px;margin:0 0 12px}
-.timeline{list-style:none;margin:0;padding:0;display:grid;gap:16px}
-.timeline-item{padding:16px;border:1px solid var(--border);background:var(--card);border-radius:14px;box-shadow:var(--shadow)}
+.timeline{list-style:none;margin:0;padding:0;display:grid;gap:16px;position:relative}
+.timeline:before{content:"";position:absolute;left:10px;top:0;bottom:0;width:2px;background:var(--border)}
+.timeline > li{position:relative;padding-left:28px}
+.timeline > li:before{content:"";position:absolute;left:4px;top:22px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid var(--accent)}
+.timeline-item{padding:16px;border:1px solid var(--border);background:linear-gradient(180deg, color-mix(in oklab, var(--card) 94%, transparent), transparent);border-radius:14px;box-shadow:var(--shadow)}
 .timeline-meta{color:var(--muted);font-size:14px}
 .timeline-title{font-weight:600;margin-top:4px}
 .timeline-body{margin-top:6px}
 .pub-list{list-style:none;margin:0;padding:0;display:grid;gap:10px}
 .pub-title{font-weight:600}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
-.card{padding:16px;border:1px solid var(--border);background:var(--card);border-radius:14px;box-shadow:var(--shadow)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.card{padding:18px;border:1px solid var(--border);background:linear-gradient(180deg, color-mix(in oklab, var(--card) 92%, transparent), transparent);border-radius:16px;box-shadow:var(--shadow);transition:transform .12s ease, box-shadow .2s ease, border-color .2s ease}
+.card:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,.08), 0 14px 34px rgba(0,0,0,.06);border-color:color-mix(in oklab, var(--border) 70%, var(--accent) 30%)}
 .card .arrow{text-decoration:none}
+
+/* subtle code style for links that look like arrows */
+.arrow{color:var(--text);position:relative}
+.arrow:after{content:"";position:absolute;left:0;bottom:-3px;height:2px;width:0;background:currentColor;transition:width .2s ease}
+.arrow:hover:after{width:100%}
 .contact{list-style:none;margin:0;padding:0;display:flex;gap:16px;flex-wrap:wrap}
 .site-footer{max-width:980px;margin:0 auto;padding:24px 20px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;color:var(--muted)}
 .back-to-top{text-decoration:none;color:var(--muted)}
