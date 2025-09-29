@@ -64,7 +64,7 @@ body::before{content:none}
 .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
 .skip-link:focus{left:16px;top:16px;width:auto;height:auto;background:var(--card);color:var(--text);padding:8px 12px;border-radius:8px;box-shadow:var(--shadow)}
 .site-header{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:16px;padding:12px 20px;background:transparent;border-bottom:1px solid var(--border)}
-.brand{font-weight:600;letter-spacing:.12em;text-decoration:none;color:var(--text);padding:2px 8px;border:1px solid var(--border);border-radius:999px;font-family:"IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}
+/* brand removed */
 .site-nav{margin-left:auto}
 .nav{display:flex;gap:16px;list-style:none;padding:0;margin:0;font-family:"IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-size:14px}
 .nav a{text-decoration:none;color:var(--muted);position:relative;text-transform:lowercase}
