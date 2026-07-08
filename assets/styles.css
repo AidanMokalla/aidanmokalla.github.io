@@ -41,3 +41,10 @@ a:hover{color:#003d7a}
 .contact{list-style:none;margin:0;padding:0;display:flex;gap:16px;flex-wrap:wrap}
 .contact li a{text-decoration:none;color:#0066cc}
 .contact li a:hover{text-decoration:underline}
+.now-playing-fallback{color:#666;font-size:14px}
+.now-playing-card{display:inline-flex;align-items:center;gap:12px;padding:12px;border:2px solid #222;background:#fff;text-decoration:none;color:#222;max-width:320px}
+.now-playing-card:hover{background:#fafafa}
+.now-playing-art{display:block;border:1px solid #ddd}
+.now-playing-info{display:flex;flex-direction:column;gap:2px}
+.now-playing-track{font-weight:bold}
+.now-playing-artist{color:#666;font-size:14px}

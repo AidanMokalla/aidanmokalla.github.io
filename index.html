@@ -132,6 +132,12 @@
 </li>
 </ul>
 </section>
+<section id="listening" aria-label="Now Playing">
+<h2>on repeat</h2>
+<div class="now-playing" id="now-playing">
+<p class="now-playing-fallback">loading…</p>
+</div>
+</section>
 <section id="contact" aria-label="Contact">
 <h2>contact</h2>
 <ul class="contact">
@@ -144,6 +150,51 @@
 </ul>
 </section>
 </main>
+<script>
+(function () {
+  var el = document.getElementById('now-playing');
+  fetch('assets/now-playing.json', { cache: 'no-store' })
+    .then(function (r) {
+      if (!r.ok) throw new Error('no data yet');
+      return r.json();
+    })
+    .then(function (data) {
+      var link = document.createElement('a');
+      link.className = 'now-playing-card';
+      link.href = data.track_url;
+      link.target = '_blank';
+      link.rel = 'noopener';
+
+      var img = document.createElement('img');
+      img.className = 'now-playing-art';
+      img.src = data.album_art;
+      img.alt = data.album + ' album art';
+      img.width = 64;
+      img.height = 64;
+      img.loading = 'lazy';
+
+      var info = document.createElement('span');
+      info.className = 'now-playing-info';
+
+      var track = document.createElement('span');
+      track.className = 'now-playing-track';
+      track.textContent = data.track;
+
+      var artist = document.createElement('span');
+      artist.className = 'now-playing-artist';
+      artist.textContent = data.artist;
+
+      info.appendChild(track);
+      info.appendChild(artist);
+      link.appendChild(img);
+      link.appendChild(info);
+      el.replaceChildren(link);
+    })
+    .catch(function () {
+      el.textContent = "couldn't load recently played track yet.";
+    });
+})();
+</script>
 </body>
 </html>
 
