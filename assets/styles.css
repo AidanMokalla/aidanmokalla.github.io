@@ -49,8 +49,7 @@ a:hover{color:#003d7a}
 .contact li a{text-decoration:none;color:#0066cc}
 .contact li a:hover{text-decoration:underline}
 .now-playing-fallback{color:#666;font-size:13px;margin:0}
-.now-playing-card{display:inline-flex;align-items:center;gap:10px;padding:8px 10px;border:1px solid #ddd;background:#fafafa;text-decoration:none;color:#222;max-width:240px}
-.now-playing-card:hover{background:#f0f0f0}
+.now-playing-card{display:inline-flex;align-items:center;gap:10px;padding:8px 10px;border:1px solid #ddd;background:#fff;text-decoration:none;color:#222;max-width:260px}
 .now-playing-art{display:block;border:1px solid #ddd}
 .now-playing-info{display:flex;flex-direction:column;gap:2px;min-width:0}
 .now-playing-track{font-weight:bold;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}

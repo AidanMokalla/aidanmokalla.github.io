@@ -163,18 +163,15 @@
       return r.json();
     })
     .then(function (data) {
-      var link = document.createElement('a');
+      var link = document.createElement('span');
       link.className = 'now-playing-card';
-      link.href = data.track_url;
-      link.target = '_blank';
-      link.rel = 'noopener';
 
       var img = document.createElement('img');
       img.className = 'now-playing-art';
       img.src = data.album_art;
       img.alt = data.album + ' album art';
-      img.width = 44;
-      img.height = 44;
+      img.width = 64;
+      img.height = 64;
       img.loading = 'lazy';
 
       var info = document.createElement('span');
