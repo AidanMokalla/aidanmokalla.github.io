@@ -51,11 +51,21 @@
 <body>
 <main>
 <section class="hero" id="home" aria-label="Introduction">
+<div class="hero-row">
+<div class="hero-text">
 <h1>aidan mokalla</h1>
 <p class="subtitle">linguistics ∙ ml ∙ trees!</p>
 <div class="cta">
 <a class="button" href="#contact">contact</a>
 <a class="button secondary" href="assets/resume/Aidan_Mokalla_resume.pdf" target="_blank" rel="noopener">cv</a>
+</div>
+</div>
+<div class="now-playing-widget" aria-label="Now Playing on Spotify">
+<span class="now-playing-label">on repeat</span>
+<div class="now-playing" id="now-playing">
+<p class="now-playing-fallback">loading…</p>
+</div>
+</div>
 </div>
 </section>
 <section id="about" aria-label="About">
@@ -132,12 +142,6 @@
 </li>
 </ul>
 </section>
-<section id="listening" aria-label="Now Playing">
-<h2>on repeat</h2>
-<div class="now-playing" id="now-playing">
-<p class="now-playing-fallback">loading..!</p>
-</div>
-</section>
 <section id="contact" aria-label="Contact">
 <h2>contact</h2>
 <ul class="contact">
@@ -169,8 +173,8 @@
       img.className = 'now-playing-art';
       img.src = data.album_art;
       img.alt = data.album + ' album art';
-      img.width = 64;
-      img.height = 64;
+      img.width = 44;
+      img.height = 44;
       img.loading = 'lazy';
 
       var info = document.createElement('span');
