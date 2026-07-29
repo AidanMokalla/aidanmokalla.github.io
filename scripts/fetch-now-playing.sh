@@ -1,8 +1,3 @@
-#!/usr/bin/env bash
-# Refreshes a Spotify access token and writes the most recently played
-# track to assets/now-playing.json. Meant to be run in CI (see
-# .github/workflows/spotify-now-playing.yml) but works locally too if the
-# three SPOTIFY_* env vars are exported.
 set -euo pipefail
 
 : "${SPOTIFY_CLIENT_ID:?missing SPOTIFY_CLIENT_ID}"
